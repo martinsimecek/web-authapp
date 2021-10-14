@@ -6,10 +6,10 @@ Authentication Application
 - Contact: hello@martinsimecek.cz
 
 ## About
-This is the core module for personal web applications. It is secure authentication and authorization tool where users can review their personal information, list login attempts, or change your password. Administrators can also list, create, update or delete accounts of other users.
+This is the core module for personal web apps. It is secure authentication and authorization tool where users can review their personal information, list login attempts, or change the password. Administrators can also list, create, update or delete accounts of users.
 
 ## Setup
-Database structure can be created with SQL commands in **db.sql** file. The database connection also requires the **_config.php** file in the root folder with following code:
+Database can be created with SQL commands in **db.sql** file. The database connection also requires the **config.php** file in the **app** folder with following code:
 
     <?php
       // Configurate connection
@@ -25,9 +25,14 @@ Database structure can be created with SQL commands in **db.sql** file. The data
     ?>
 
 ## Structure
-The app consists of signin, user and admin webpage. Data tables, sessions and variables used in this app are listed bellow.
+The app consists of index (login), user and admin webpage. Data tables, sessions and variables used in this app are listed bellow.
 
 ### SQL Tables
+- **auth_login** - Incremental table of successful logins
+    - (PK) **id** INT
+    - **created_on** TIMESTAMP
+    - **created_by** CHAR(36)
+    - **ip_address** VARCHAR(45)
 - **auth_user** - List of users and their personal information
     - (PK) **user** CHAR(36)
     - **created_on** TIMESTAMP
@@ -35,16 +40,10 @@ The app consists of signin, user and admin webpage. Data tables, sessions and va
     - **email** VARCHAR(255)
     - **password** VARCHAR(255)
     - **role** VARCHAR(255)
-- **auth_login** - Incremental table of successful logins
-    - (PK) **id** INT
-    - **created_on** TIMESTAMP
-    - **created_by** CHAR(36)
-    - **ip_address** VARCHAR(45)
 - **auth_role** - List of user roles
-    - (PK) **group** CHAR(3)
-    - **group_name** VARCHAR(50)
-    - **access** TINYINT(1)
-    - **modify** TINYINT(1)
+    - (PK) **role** VARCHAR(255)
+    - **read** TINYINT(1)
+    - **edit** TINYINT(1)
     - **manage** TINYINT(1)
 
 ### Sessions

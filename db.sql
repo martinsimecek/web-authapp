@@ -33,7 +33,7 @@ CREATE TABLE `auth_user` (
 );
 INSERT INTO `auth_user` (`user`, `created_by`, `email`, `password`, `role`)
 VALUES
-	('00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000', '<email>', '$2y$10$Af/8C.q1KFGpY3SUA7Q5UebX7SSVp7GEAlTD9scCQb6bhjUNYIRxO', 'Správce'); -- Default password: 123456789
+	('00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000', '<email>', '$2y$10$Af/8C.q1KFGpY3SUA7Q5UebX7SSVp7GEAlTD9scCQb6bhjUNYIRxO', 'Správce'); -- Preset password: 123456789
 
 -- auth_login
 CREATE TABLE `auth_login` (
