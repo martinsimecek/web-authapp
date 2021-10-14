@@ -3,7 +3,7 @@ Authentication Application
 
 ## Basic info
 - Owner: Martin Simecek
-- Contact: admin@martinsimecek.cz
+- Contact: hello@martinsimecek.cz
 
 ## About
 This is the core module for personal web applications. It is secure authentication and authorization tool where users can review their personal information, list login attempts, or change your password. Administrators can also list, create, update or delete accounts of other users.
