@@ -124,13 +124,13 @@
   $logins_mysqli->close();
   while($logins_row = $logins_result->fetch_assoc()) {
     echo ('
-                  <tr>
-                    <th scope="row">' . $logins_row['row'] . '</th>
-                    <td>' . $logins_row['created_on'] . '</td>
-                    <td>' . $logins_row['ip_address'] . '</td>
-                    <td>' . json_decode(file_get_contents("http://ipinfo.io/{$logins_row['ip_address']}?token=41c20a53bc30ae"))->country . '</td>
-                    <td>' . json_decode(file_get_contents("http://ipinfo.io/{$logins_row['ip_address']}?token=41c20a53bc30ae"))->region . '</td>
-                  </tr>'
+                <tr>
+                  <th scope="row">' . $logins_row['row'] . '</th>
+                  <td>' . $logins_row['created_on'] . '</td>
+                  <td>' . $logins_row['ip_address'] . '</td>
+                  <td>' . json_decode(file_get_contents("http://ipinfo.io/{$logins_row['ip_address']}?token=41c20a53bc30ae"))->country . '</td>
+                  <td>' . json_decode(file_get_contents("http://ipinfo.io/{$logins_row['ip_address']}?token=41c20a53bc30ae"))->region . '</td>
+                </tr>'
     );
   }
 ?>

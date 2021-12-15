@@ -158,12 +158,12 @@
   $logins_mysqli->close();
   while($logins_row = $logins_result->fetch_assoc()) {
     echo ('
-                  <tr>
-                    <th scope="row">' . $logins_row['row'] . '</th>
-                    <td>' . $logins_row['created_on'] . '</td>
-                    <td>' . $logins_row['email'] . '</td>
-                    <td>' . $logins_row['ip_address'] . '</td>
-                  </tr>'
+                <tr>
+                  <th scope="row">' . $logins_row['row'] . '</th>
+                  <td>' . $logins_row['created_on'] . '</td>
+                  <td>' . $logins_row['email'] . '</td>
+                  <td>' . $logins_row['ip_address'] . '</td>
+                </tr>'
     );
   }
 ?>

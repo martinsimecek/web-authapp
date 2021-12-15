@@ -2,7 +2,7 @@
   // Check login
   session_start();
   if(empty($_SESSION['authUser'])) {
-    die('Access denied - user not <a href="' . $_SERVER['DOCUMENT_ROOT'] . 'login/">logged in</a>.');
+    die('Access denied - user not <a href="https://login.martinsimecek.cz/">logged in</a>.');
   }
   // Check right to read
   include($_SERVER['DOCUMENT_ROOT'] . 'login/app/config.php');
