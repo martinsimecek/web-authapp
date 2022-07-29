@@ -26,7 +26,7 @@
   $mysqli_pass_update->close();
   $conn->close();
   // Send email and return success
-  mail($auth_email, 'AuthApp - Your account', 'Dear user,' . "\n\n" . 'Your account has been updated! The following information has changed:' . "\n\n" . '- Password: <secret>' . "\n\n" . '// This is an automated email. Please do not reply.', 'From: admin@martinsimecek.cz' . "\r\n");
+  mail($auth_email, 'AuthApp - Your account', 'Dear user,' . "\n\n" . 'Your account has been updated! The following information has changed:' . "\n\n" . '- Password: <secret>' . "\n\n" . '// This is an automated email. Please do not reply.', 'From: ' . $admin . "\r\n");
   header('Location: logout.php');
   die();
 ?>

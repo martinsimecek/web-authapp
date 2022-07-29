@@ -1,5 +1,5 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/authorize.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/authorize.php'); ?>
 <!DOCTYPE html>
 <!-- © Martin Šimeček. All rights reserved. -->
 <html lang="en">
@@ -33,8 +33,6 @@
           <a href="admin.php" target="_self">Administrátor</a>
           &middot;');} ?>
 
-          <a href="https://business.martinsimecek.cz/" target="_self">BTool</a>
-          &middot;
           <a href="app/logout.php" target="_self">Odhlásit</a>
         </div>
       </header>
@@ -83,7 +81,7 @@
         <h3 class="card-header py-3 bg-white">Změna hesla</h3>
         <div class="card-body">
           <p class="mb-3">Délka hesla musí být v rozmezí 8 až 20 znaků. Heslo je hashováno silným jednostranným algoritmem <a href="https://www.php.net/manual/en/function.password-hash.php" target="_blank">password_hash()</a>. Důrazně se doporučuje používat kombinace velkých a malých písmen, čísel a speciálních znaků pro maximální zabezpečení Vašeho účtu. Po změně hesla budete automaticky odhlášeni.</p>
-          <form action="app/passchange.php" method="post">
+          <form action="app/change_pass.php" method="post">
             <div class="row">
               <div class="col-md-5 mb-3">
                 <input type="password" name="password1" class="form-control" placeholder="Nové heslo" aria-label="Nové heslo" aria-describedby="button-addon" minlength="8" maxlength="20" required>
@@ -111,8 +109,6 @@
                   <th scope="col">#</th>
                   <th scope="col">Datum</th>
                   <th scope="col">IP Adresa</th>
-                  <th scope="col">Země</th>
-                  <th scope="col">Region</th>
                 </tr>
               </thead>
               <tbody><?php
@@ -128,8 +124,6 @@
                   <th scope="row">' . $logins_row['row'] . '</th>
                   <td>' . $logins_row['created_on'] . '</td>
                   <td>' . $logins_row['ip_address'] . '</td>
-                  <td>' . json_decode(file_get_contents("http://ipinfo.io/{$logins_row['ip_address']}?token=41c20a53bc30ae"))->country . '</td>
-                  <td>' . json_decode(file_get_contents("http://ipinfo.io/{$logins_row['ip_address']}?token=41c20a53bc30ae"))->region . '</td>
                 </tr>'
     );
   }
@@ -145,7 +139,7 @@
       <div class="card my-4">
         <h3 class="card-header py-3 bg-white">Deaktivace účtu</h3>
         <div class="card-body">
-          <p class="mb-3">Pokud si přejete smazání osobních informací a deaktivaci Vašeho účtu nebo pouze změnu některé z informací, kontaktuje prosím správce s žádostí na e-mailové adrese <a href="mailto:admin@martinsimecek.cz">admin@martinsimecek.cz</a>.</p>
+          <p class="mb-3">Pokud si přejete smazání osobních informací a deaktivaci Vašeho účtu nebo pouze změnu některé z informací, kontaktuje prosím správce s žádostí na e-mailové adrese <a href="mailto:<?=$admin?>"><?=$admin?></a>.</p>
         </div>
       </div>
 

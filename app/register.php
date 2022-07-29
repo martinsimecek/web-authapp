@@ -41,7 +41,7 @@
   $mysqli_register_insert->close();
   $conn->close();
   // Send email and return success
-  mail($_POST['email'], 'AuthApp - Your account', 'Dear user,' . "\n\n" . 'Your account has been created! You can now log in to https://login.martinsimecek.cz/ with following credentials:' . "\n\n" . '- Email address: ' . $_POST['email'] . "\n" . '- Password: ' . $register_password . "\n\n" . 'Please, do not share your password with anyone else.' . "\n\n" . '// This is an automated email. Please do not reply.', 'From: admin@martinsimecek.cz' . "\r\n");
+  mail($_POST['email'], 'AuthApp - Your account', 'Dear user,' . "\n\n" . 'Your account has been created! You can now log in to https://' . $_SERVER['HTTP_HOST'] . '/ with following credentials:' . "\n\n" . '- Email address: ' . $_POST['email'] . "\n" . '- Password: ' . $register_password . "\n\n" . 'Please, do not share your password with anyone else.' . "\n\n" . '// This is an automated email. Please do not reply.', 'From: ' . $admin . "\r\n");
   header('Location: ../admin.php');
   die();
 ?>

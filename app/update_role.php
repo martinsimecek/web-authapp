@@ -30,7 +30,7 @@
   $mysqli_role_update->close();
   $conn->close();
   // Send email and return success
-  mail($_POST['email'], 'AuthApp - Your account', $message, 'From: admin@martinsimecek.cz' . "\r\n");
+  mail($_POST['email'], 'AuthApp - Your account', $message, 'From: ' . $admin . "\r\n");
   header('Location: ../admin.php');
   die();
 ?>

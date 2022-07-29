@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/header.php'); ?>
 <?php
   session_start();
   if(isset($_SESSION['authUser'])) {
@@ -5,7 +6,6 @@
     die();
   }
 ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/header.php'); ?>
 <!DOCTYPE html>
 <!-- © Martin Šimeček. All rights reserved. -->
 <html lang="en">
@@ -41,7 +41,7 @@
         <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Přihlašovací heslo"  minlength="8" maxlength="20" required>
         <label for="loginPassword">Přihlašovací heslo</label>
       </div>
-      <input type="text" name="source" value="https://login.martinsimecek.cz/" hidden>
+      <input type="text" name="source" value="<?=($_GET['source'] ?: 'https://'.$_SERVER['HTTP_HOST'])?>" hidden>
       <button class="w-100 btn btn-lg btn-primary my-3" type="submit">Přihlásit</button>
       <p class="small">
         <a href="doc/privacy_policy.pdf" target="_blank">Zásady ochrany osobních údajů</a>

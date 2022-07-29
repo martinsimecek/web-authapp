@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/header.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/authorize.php'); ?>
 <?php
   // Check right to manage
@@ -5,7 +6,6 @@
     die("Access denied - missing permission (manage).");
   }
 ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . 'login/app/header.php'); ?>
 <?php
 // Select data
   $stats_mysqli = $conn->prepare("SELECT * FROM (SELECT l.created_on, u.email FROM `auth_login` l LEFT OUTER JOIN `auth_user` u ON l.created_by = u.user WHERE l.id = (SELECT MAX(id) FROM `auth_login`)) a, (SELECT COUNT(id) FROM `auth_login`) b, (SELECT COUNT(DISTINCT ip_address) FROM `auth_login`) c");
@@ -46,8 +46,6 @@
         <div>
           <a href="user.php" target="_self">Uživatel</a>
           &middot;
-          <a href="https://business.martinsimecek.cz/" target="_self">BTool</a>
-          &middot;
           <a href="app/logout.php" target="_self">Odhlásit</a>
         </div>
       </header>
@@ -81,7 +79,7 @@
                   <td>' . $users_row['email']. '</td>
                   <td>' . $users_row['created_on']. '</td>
                   <td>
-                    <form action="app/rolechange.php" method="post">
+                    <form action="app/change_role.php" method="post">
                       <div class="input-group">
                         <select class="form-select form-select-sm" aria-label="Výběr uživatelské role" name="role" required '.(($users_row['user']==$auth_user)?'disabled':'').'>
                           <option selected disabled>' . $users_row['role']. '</option>
